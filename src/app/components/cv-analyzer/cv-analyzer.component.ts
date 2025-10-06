@@ -84,7 +84,7 @@ export class CvAnalyzerComponent {
     this.keywords = [];
   }
 
-  // ========== UTILS PARA UI ==========
+  // ========== UTILS ==========
   getIniciales(nombre?: string): string {
     const safe = (nombre || '').trim();
     if (!safe) return '??';
@@ -118,10 +118,6 @@ export class CvAnalyzerComponent {
 
     this.cvService.evaluarCVs(this.archivos, this.keywords).subscribe({
       next: (resp: any) => {
-        // resp puede venir:
-        // 1) como objeto { RespuestaModelo: [...] }
-        // 2) como string JSON
-        // 3) en casos raros, como array directo
         try {
           let payload: any = resp;
 
@@ -142,14 +138,15 @@ export class CvAnalyzerComponent {
             arr = payload.data.RespuestaModelo;
           }
 
-          // Normalizar y filtrar
-       this.resultados = (arr || [])
-  .filter((r: any) => r && (typeof r.postulante === 'string' || typeof r.name === 'string'))
-  .map((r: any) => ({
-    postulante: (r.postulante || r.name || 'Postulante') as string,
-    score: this.getScore(r) as number,
-    explanation: (r.explanation || r.descripcion || '') as string
-  }));
+          // Normalizar, filtrar y ordenar de MAYOR a MENOR puntuación
+          this.resultados = (arr || [])
+            .filter((r: any) => r && (typeof r.postulante === 'string' || typeof r.name === 'string'))
+            .map((r: any) => ({
+              postulante: (r.postulante || r.name || 'Postulante') as string,
+              score: this.getScore(r) as number,
+              explanation: (r.explanation || r.descripcion || '') as string
+            }))
+            .sort((a, b) => b.score - a.score); // 👈 aquí el orden descendente
 
           this.cargando = false;
 

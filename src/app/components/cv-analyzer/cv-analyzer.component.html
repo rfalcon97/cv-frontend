@@ -49,11 +49,11 @@
           <i class="ri-upload-cloud-2-line text-primary ri-2x"></i>
         </div>
         <h3 class="text-lg font-medium text-gray-800 mb-2">Arrastra y suelta archivos aquí</h3>
-        <p class="text-gray-500 mb-4">Soporta archivos PDF, DOCX y TXT (máx. 10MB)</p>
+        <p class="text-gray-500 mb-4">Soporta archivos PDF (máx. 10MB)</p>
         <div class="flex flex-wrap justify-center gap-2">
           <label class="bg-primary text-white px-4 py-2 rounded-button cursor-pointer flex items-center">
             <i class="ri-upload-line mr-2"></i>Cargar archivos
-            <input type="file" accept=".pdf,.docx,.txt" multiple class="hidden" (change)="onFileInputChange($event)">
+            <input type="file" accept=".pdf" multiple class="hidden" (change)="onFileInputChange($event)">
           </label>
           <button class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-button whitespace-nowrap flex items-center"
                   (click)="clearFiles()">
