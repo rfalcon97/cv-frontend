@@ -3,7 +3,7 @@ module.exports = {
   content: ['./src/**/*.{html,ts}'],
   theme: {
     extend: {
-      colors: { primary: '#4F46E5', secondary: '#10B981' },
+      colors: { primary: '#822433', secondary: '#FDC82F' },
       borderRadius: {
         none: '0px',
         sm: '4px',
