@@ -1,0 +1,59 @@
+/* Colores base, ajusta a tu Tailwind si ya tienes tokens */
+:root {
+  --primary: #8B2131; /* color institucional sugerido */
+}
+
+.text-primary { color: var(--primary); }
+.bg-primary { background-color: var(--primary); }
+
+.rounded-button {
+  border-radius: 9999px;
+}
+
+.drop-zone {
+  border-color: #d1d5db; /* gray-300 */
+  transition: all .15s ease-in-out;
+}
+.drop-zone.drag-over {
+  border-color: var(--primary);
+  background: rgba(139, 33, 49, 0.05);
+}
+
+.file-pill {
+  display: inline-flex;
+  align-items: center;
+  background: #f3f4f6; /* gray-100 */
+  color: #374151; /* gray-700 */
+  padding: 6px 10px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+}
+.file-pill button {
+  color: #6b7280; /* gray-500 */
+}
+
+.tag {
+  background: #eef2ff; /* indigo-50 */
+  color: #3730a3;      /* indigo-800 */
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+.tag-input {
+  min-width: 180px;
+  outline: none;
+}
+.suggestion {
+  font-size: 12px;
+  background: #f3f4f6; /* gray-100 */
+  color: #111827; /* gray-900 */
+  padding: 4px 8px;
+  border-radius: 9999px;
+}
+.progress-bar {
+  transition: width .25s ease;
+}
