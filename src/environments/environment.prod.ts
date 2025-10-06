@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: false,
+  apiBase: 'https://backend-llm-1vbu.onrender.com'
 };
